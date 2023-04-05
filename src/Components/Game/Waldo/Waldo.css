@@ -1,0 +1,7 @@
+.waldo {
+  position: absolute; /* set position to absolute */
+  height: 60px;
+  width: 38px;
+  left: 78%; /* adjust left and top values to position Waldo */
+  top: 13%;
+}

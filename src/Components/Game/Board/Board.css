@@ -1,0 +1,18 @@
+.board {
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-image: url("/src/Assets/background.jpeg");
+  height: 100vh; /* take up 90% of parent element's height */
+  width: 100vh; /* take up 80% of parent element's width */
+  background-size: contain; /* scale image to fit inside element */
+  background-position: center center; /* center the image */
+  background-repeat: no-repeat; /* prevent the image from repeating */
+  position: relative; /* set position to relative */
+}
