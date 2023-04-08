@@ -7,22 +7,9 @@
   padding: 0 20px;
 }
 
-.title,
-.find {
+.title {
   font-size: 24px;
   font-weight: bold;
-}
-
-.find {
-  display: flex;
-  align-items: center;
-  width: 200px;
-  height: 100%;
-}
-
-.find img {
-  height: 50%; /* take up half of the height of the container */
-  object-fit: contain; /* fit the image inside the container */
 }
 
 .timer {

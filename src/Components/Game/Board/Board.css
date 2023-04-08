@@ -3,10 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .game {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 50px;
   background-image: url("/src/Assets/background.jpeg");
   height: 100vh; /* take up 90% of parent element's height */
@@ -16,3 +17,19 @@
   background-repeat: no-repeat; /* prevent the image from repeating */
   position: relative; /* set position to relative */
 }
+.find {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.imgs {
+  display: flex;
+}
+
+.imgs img {
+  width: 100px;
+  margin-right: 10px;
+}
+

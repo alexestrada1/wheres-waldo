@@ -1,7 +1,20 @@
-import React from "react";
-import "./Waldo.css"
+import React, { useState } from "react";
+import "./Waldo.css";
 
-const Waldo = ({gameWon}) => {
-  return <div className="waldo" onClick={gameWon}></div>;
+const Waldo = ({ name, onImageClick }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+    onImageClick(name);
+  };
+
+  return (
+    <div
+      className={`${name} ${isClicked ? "clicked" : ""}`}
+      onClick={handleClick}
+    ></div>
+  );
 };
+
 export default Waldo;
