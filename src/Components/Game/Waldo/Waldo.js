@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import "./Waldo.css";
 
-const Waldo = ({ name, onImageClick }) => {
+const Waldo = ({ name }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
     setIsClicked(true);
-    onImageClick(name);
   };
 
   return (
     <div
+    onClick={handleClick}
       className={`${name} ${isClicked ? "clicked" : ""}`}
-      onClick={handleClick}
     ></div>
   );
 };
