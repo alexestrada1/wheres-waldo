@@ -43,3 +43,10 @@
   padding: 10px;
   border-radius: 5px;
 }
+.noti{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 30px;
+}

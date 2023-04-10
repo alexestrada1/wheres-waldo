@@ -13,11 +13,14 @@ const Board = ({ gameWon }) => {
 
   const handleImageClick = (imageName) => {
     const waldoElement = document.querySelector(`.${imageName}`);
+    const notiElement = document.querySelector(".noti")
     if (waldoElement.classList.contains("clicked")) {
       setFoundImages((prevImages) => [...prevImages, imageName]);
       setPoints(points + 1);
+      notiElement.textContent = `You found ${imageName}!`
     }
     else{
+      notiElement.textContent = "Try Again!"
       setShowMenu(false)
     }
   };
@@ -29,7 +32,9 @@ const Board = ({ gameWon }) => {
   }, [points, gameWon]);
 
   useEffect(() => {
+    const notiElement = document.querySelector(".noti")
     const handleClick = (event) => {
+      notiElement.textContent = ""
       setShowMenu(true);
       const gameDiv = document.querySelector(".game");
       const gameRect = gameDiv.getBoundingClientRect();
@@ -74,6 +79,7 @@ const Board = ({ gameWon }) => {
           {!foundImages.includes("elmo") && <img alt="elmo" src={elmo} />}
         </div>
       </div>
+      <div className="noti"></div>
       <div className="game">
         {showMenu && (
           <div
