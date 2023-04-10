@@ -46,8 +46,7 @@ const Board = ({ gameWon }) => {
 
     const gameDiv = document.querySelector(".game");
     gameDiv.addEventListener("click", handleClick);
-    console.log(menuPosition);
-
+    
     return () => {
       gameDiv.removeEventListener("click", handleClick);
     };

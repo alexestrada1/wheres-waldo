@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Board from "../../Components/Game/Board/Board";
 
-const Game = ({restartGame}) => {
+const Game = ({restartGame, stopTimer}) => {
   const [gameWon, setGameWon] = useState(false);
 
+  
   const handleGameWon = () => {
     setGameWon(true);
+    stopTimer();
   };
 
   return (

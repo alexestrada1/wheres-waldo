@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Header/Header.css";
 
-const Header = () => {
+const Header = ({ gameStarted, pause, getScore }) => {
+  const [time, setTime] = useState(0);
+  useEffect(() => {
+    if (!gameStarted) {
+      setTime(0);
+    }
+  }, [gameStarted]);
+  
+  useEffect(() => {
+    if (pause) {
+      getScore(time);
+    }
+  }, [pause, time, getScore]);
+
+  useEffect(() => {
+    let interval;
+    if (gameStarted && !pause) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [gameStarted, pause]);
+
+  const formatTime = (time) => {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = time % 60;
+    return `${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+  };
+
   return (
     <div className="header">
       <div className="title">Cartoon Wheres Waldo Game</div>
-      <div className="timer">00:00:00</div>
+      {gameStarted && <div className="timer">{formatTime(time)}</div>}
       <div className="leaderboard">leaderboard</div>
     </div>
   );
