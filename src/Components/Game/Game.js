@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Board from "../../Components/Game/Board/Board";
+import "../Game/Game.css"
 
 const Game = ({restartGame, stopTimer}) => {
   const [gameWon, setGameWon] = useState(false);
@@ -13,7 +14,7 @@ const Game = ({restartGame, stopTimer}) => {
   return (
     <div>
       {gameWon ? (
-        <div>
+        <div className="won">
             <div>You have won!</div>
             <button onClick={restartGame}>Restart Game</button>
         </div>

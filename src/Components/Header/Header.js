@@ -8,7 +8,7 @@ const Header = ({ gameStarted, pause, getScore }) => {
       setTime(0);
     }
   }, [gameStarted]);
-  
+
   useEffect(() => {
     if (pause) {
       getScore(time);
@@ -29,14 +29,19 @@ const Header = ({ gameStarted, pause, getScore }) => {
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time % 3600) / 60);
     const seconds = time % 60;
-    return `${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+    return `${hours < 10 ? "0" + hours : hours}:${
+      minutes < 10 ? "0" + minutes : minutes
+    }:${seconds < 10 ? "0" + seconds : seconds}`;
   };
 
   return (
     <div className="header">
-      <div className="title">Cartoon Wheres Waldo Game</div>
-      {gameStarted && <div className="timer">{formatTime(time)}</div>}
-      <div className="leaderboard">leaderboard</div>
+      <div className="left-header">
+        <div className="title">Cartoon Wheres Waldo Game</div>
+      </div>
+      <div className="right-header">
+        {gameStarted && <div className="timer">Time: {formatTime(time)}</div>}
+      </div>
     </div>
   );
 };

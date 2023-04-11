@@ -3,7 +3,8 @@ import Game from "./Components/Game/Game";
 import Header from "./Components/Header/Header";
 import { firestore } from "./firebase";
 import { setDoc, doc, collection, updateDoc, getDoc } from "firebase/firestore";
-
+import Leaderboard from "./Components/Leaderboard/Leaderboard";
+import "./App.css";
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [playerName, setPlayerName] = useState("");
@@ -42,6 +43,10 @@ function App() {
   const handleStartGame = async () => {
     setPause(false);
     const name = playerNameRef.current.value;
+    if (name === "") {
+      alert("Please enter a name to start the game.");
+      return;
+    }
     setPlayerName(name);
     const docRef = doc(collection(firestore, "names"), name);
 
@@ -61,10 +66,17 @@ function App() {
     <div className="App">
       <Header gameStarted={gameStarted} pause={pause} getScore={getScore} />
       {!gameStarted && (
-        <div className="start-game">
-          <label>Enter Name</label>
-          <input type="text" ref={playerNameRef} />
-          <button onClick={handleStartGame}>Start Game</button>
+        <div className="container">
+          <div className="left">
+            <div className="start-game">
+              <label>Enter Name</label>
+              <input type="text" ref={playerNameRef} />
+              <button onClick={handleStartGame}>Start Game</button>
+            </div>
+          </div>
+          <div className="right">
+            <Leaderboard />
+          </div>
         </div>
       )}
       {gameStarted && (
