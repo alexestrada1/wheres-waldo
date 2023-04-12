@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "./Waldo.css";
 
-const Waldo = ({ name }) => {
+const Waldo = ({ name, position }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -10,7 +9,14 @@ const Waldo = ({ name }) => {
 
   return (
     <div
-    onClick={handleClick}
+      style={{
+        position: "absolute",
+        height: `${position[0]}px`,
+        width: `${position[1]}px`,
+        left: `${position[2]}px`,
+        top: `${position[3]}px`,
+      }}
+      onClick={handleClick}
       className={`${name} ${isClicked ? "clicked" : ""}`}
     ></div>
   );

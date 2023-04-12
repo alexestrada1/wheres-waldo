@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Board from "../../Components/Game/Board/Board";
-import "../Game/Game.css"
+import "../Game/Game.css";
 
-const Game = ({restartGame, stopTimer}) => {
+const Game = ({ restartGame, stopTimer, randImgs }) => {
   const [gameWon, setGameWon] = useState(false);
 
-  
   const handleGameWon = () => {
     setGameWon(true);
     stopTimer();
@@ -15,11 +14,11 @@ const Game = ({restartGame, stopTimer}) => {
     <div>
       {gameWon ? (
         <div className="won">
-            <div>You have won!</div>
-            <button onClick={restartGame}>Restart Game</button>
+          <div>You have won!</div>
+          <button onClick={restartGame}>Restart Game</button>
         </div>
       ) : (
-        <Board gameWon={handleGameWon} />
+        <Board gameWon={handleGameWon} randImgs={randImgs}/>
       )}
     </div>
   );

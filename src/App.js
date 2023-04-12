@@ -4,12 +4,14 @@ import Header from "./Components/Header/Header";
 import { firestore } from "./firebase";
 import { setDoc, doc, collection, updateDoc, getDoc } from "firebase/firestore";
 import Leaderboard from "./Components/Leaderboard/Leaderboard";
+import randomImgs from "./Assets/randomImg";
 import "./App.css";
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [playerName, setPlayerName] = useState("");
   const [pause, setPause] = useState(false);
   const [score, setScore] = useState(0);
+  const [randImgs, setRandImgs] = useState([]);
   const playerNameRef = useRef();
 
   function stopTimer() {
@@ -41,6 +43,9 @@ function App() {
   }
 
   const handleStartGame = async () => {
+    //makes the imgs into an array from a promise
+    const imgs = await randomImgs();
+    setRandImgs(imgs);
     setPause(false);
     const name = playerNameRef.current.value;
     if (name === "") {
@@ -80,7 +85,11 @@ function App() {
         </div>
       )}
       {gameStarted && (
-        <Game restartGame={handleRestartGame} stopTimer={stopTimer} />
+        <Game
+          restartGame={handleRestartGame}
+          stopTimer={stopTimer}
+          randImgs={randImgs}
+        />
       )}
     </div>
   );

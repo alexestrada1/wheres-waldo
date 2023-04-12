@@ -1,5 +1,5 @@
 .board {
-  background-color: #3b5998;
+  background-color: antiquewhite;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +38,45 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: lightblue;
+  min-width: 100px;
 }
+.menu button{
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 10rem;
+  color: black;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.menu button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: black;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.menu button:hover {
+  color: #fff;
+}
+.menu button:hover:before {
+  width: 100%;
+}
+
 .noti{
   display: flex;
   justify-content: center;
@@ -50,3 +84,4 @@
   width: 120px;
   height: 30px;
 }
+
