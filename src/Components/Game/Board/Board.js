@@ -106,9 +106,9 @@ const Board = ({ gameWon, randImgs }) => {
             )}
           </div>
         )}
-        <Waldo name={randImgs[0].name} position={randImgs[0].position}/>
-        <Waldo name={randImgs[1].name} position={randImgs[1].position}/>
-        <Waldo name={randImgs[2].name} position={randImgs[2].position}/>
+        <Waldo name={randImgs[0].name} position={randImgs[0].position} />
+        <Waldo name={randImgs[1].name} position={randImgs[1].position} />
+        <Waldo name={randImgs[2].name} position={randImgs[2].position} />
       </div>
     </div>
   );

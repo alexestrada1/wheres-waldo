@@ -18,7 +18,7 @@ const Game = ({ restartGame, stopTimer, randImgs }) => {
           <button onClick={restartGame}>Restart Game</button>
         </div>
       ) : (
-        <Board gameWon={handleGameWon} randImgs={randImgs}/>
+        <Board gameWon={handleGameWon} randImgs={randImgs} />
       )}
     </div>
   );

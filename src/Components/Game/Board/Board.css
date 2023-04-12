@@ -44,7 +44,7 @@
   background-color: lightblue;
   min-width: 100px;
 }
-.menu button{
+.menu button {
   display: inline-block;
   padding: 0.75rem 1rem;
   border-radius: 10rem;
@@ -77,11 +77,10 @@
   width: 100%;
 }
 
-.noti{
+.noti {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 120px;
   height: 30px;
 }
-
