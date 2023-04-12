@@ -15,10 +15,15 @@ const Leaderboard = () => {
         time: doc.data().time,
       }));
 
-      // Sort scores in ascending order
-      scoresData.sort((a, b) => a.time - b.time);
+      // Filter scores with non-integer times
+      const integerScores = scoresData.filter((score) =>
+        Number.isInteger(score.time)
+      );
 
-      setScores(scoresData);
+      // Sort scores in ascending order
+      integerScores.sort((a, b) => a.time - b.time);
+
+      setScores(integerScores);
     };
 
     fetchScores();
